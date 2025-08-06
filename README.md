@@ -10,6 +10,7 @@ This project demonstrates how to deploy a WordPress site along with a MySQL data
 ## 📁 Project Structure
 ansible/
 ├── wordpressdeploy.yml
+
 ├── hosts.ini
 
 
@@ -29,6 +30,7 @@ ansible/
 <img width="983" height="272" alt="wordpress deploy" src="https://github.com/user-attachments/assets/c85e0181-25a6-42d9-96df-6a9ccd4d1f6a" />
 
 Now you can access wordpress at http://localhost:8080
+
 <img width="1237" height="947" alt="wordpress webpage" src="https://github.com/user-attachments/assets/51a565b2-f4bb-4ea6-982a-db3d73d7a2b0" />
 
 📌 What I Learned
