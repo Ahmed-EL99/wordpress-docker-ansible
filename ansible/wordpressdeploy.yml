@@ -1,0 +1,42 @@
+---
+- name: deploys wordpress along with a database
+  hosts: ubuntu-target
+  become: yes
+
+  tasks:
+    - name: create a network
+      community.docker.docker_network:
+        name: wordpress
+
+    - name: Deploy wordpress
+      community.docker.docker_container:
+        name: wordpress
+        image: wordpress:latest
+        ports:
+          - "80:80"
+        networks:
+          - name: wordpress
+        volumes:
+          - wordpress:/var/www/html
+        env:
+          WORDPRESS_DB_HOST: "db"
+          WORDPRESS_DB_USER: "exampleuser"
+          WORDPRESS_DB_PASSWORD: "examplepass"
+          WORDPRESS_DB_NAME: "exampledb"
+        restart_policy: always
+
+
+    - name: Deploy MYSQL DB
+      community.docker.docker_container:
+        name: db
+        image: mysql:5.7
+        networks:
+          - name: wordpress
+        volumes:
+          - db:/var/lib/mysql
+        env:
+          MYSQL_DATABASE: "exampledb"
+          MYSQL_USER: "exampleuser"
+          MYSQL_PASSWORD: "examplepass"
+          MYSQL_RANDOM_ROOT_PASSWORD: '1'
+        restart_policy: always
