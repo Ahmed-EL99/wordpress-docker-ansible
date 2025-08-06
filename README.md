@@ -9,6 +9,7 @@ This project demonstrates how to deploy a WordPress site along with a MySQL data
 
 ## 📁 Project Structure
 ansible/
+
 ├── wordpressdeploy.yml
 
 ├── hosts.ini
@@ -22,10 +23,10 @@ ansible/
 
 ## 🧪 How to Run
 1. Clone the repo
-2. Update `hosts.ini` with your target machine or use `localhost`
+2. Update `hosts` with your target machine or use `localhost`
 3. Run:
    ```bash
-   ansible-playbook -i ansible/hosts.ini ansible/wordpressdeploy.yml
+   ansible-playbook -i ansible/hosts ansible/wordpressdeploy.yml
   
 <img width="983" height="272" alt="wordpress deploy" src="https://github.com/user-attachments/assets/c85e0181-25a6-42d9-96df-6a9ccd4d1f6a" />
 
